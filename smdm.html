@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Research on 3D reconstruction from multi-view VHR-satellite - Ewelina Rupnik's webpage</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+
+  <!-- Custom styles for this template -->
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="css/resume.css" rel="stylesheet">
+t
+  <!-- scripts on load -->
+  <script src="vendor/d3/d3.min.js"></script>
+  <script src="js/reviewing.js" charset="utf-8"></script>
+    <script src="js/hal.js" charset="utf-8"></script>
+
+</head>
+
+<body id="page-top" onload="getKeywordPublicationsAuthor('ewelina-rupnik','smdm');">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <select class="selectpicker" data-width="fit">
+      <option data-content='<span class="flag-icon flag-icon-us"></span> English'>English</option>
+      <option  data-content='<span class="flag-icon flag-icon-fr"></span> Français'>Français</option>
+    </select>
+    <a class="nav-link text-muted subheading lang-en" href="https://umrlastig.github.io/acte">ACTE Team</a>
+    <a class="nav-link text-muted subheading lang-fr" href="https://umrlastig.github.io/acte">Equipe ACTE</a>
+    <a class="nav-link text-muted subheading lang-en" href="index.html">Main page</a>
+    <a class="nav-link text-muted subheading lang-fr" href="index.html">Page principale</a>
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <span class="d-block d-lg-none">Ewelina Rupnik</span>
+      <span class="d-none d-lg-block">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/er.png" alt="">
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger lang-en" href="#about">About</a>
+          <a class="nav-link js-scroll-trigger lang-fr" href="#about">Principes</a>
+        </li> 
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger lang-en" href="#algorithm">Algorithm</a>
+            <a class="nav-link js-scroll-trigger lang-fr" href="#algorithm">Algorithm</a>
+        </li>      
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger lang-en" href="#result">Results</a>
+            <a class="nav-link js-scroll-trigger lang-fr" href="#result">Results</a>
+        </li>        
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger lang-en" href="#publications">Publications</a>
+          <a class="nav-link js-scroll-trigger lang-fr" href="#publications">Publications</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-fluid p-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
+      <div class="w-100">
+        <h1 class="mb-0 lang-en">Research on
+          <span class="text-primary lang-en">3D reconstruction</span> from multi-view VHR satellite images
+        </h1> 
+
+      <p class="lead mb-5 lang-en">This work addresses the generation of high quality digital surface models by fusing multiple depths maps calculated with the dense image matching method. The algorithm is adapted to very high resolution multi-view satellite images, and the main contributions of this work are in the multi-view fusion. The algorithm is insensitive to outliers, takes into account the matching quality indicators, handles non-correlated zones (e.g. occlusions), and is solved with a multi-directional dynamic programming approach. No geometric constraints (e.g. surface planarity) or auxiliary data in form of ground control points are required for its operation. Prior to the fusion procedures, the RPC geolocation parameters of all images are improved in a bundle block adjustment routine. The performance of the algorithm is evaluated on two VHR (Very High Resolution)-satellite image datasets (Pléiades, WorldView-3) revealing its good performance in reconstructing non-textured areas, repetitive patterns, and surface discontinuities.</p>
+      <p class="lead mb-5 lang-fr">Regardez la version anglaise</p>
+
+
+    </div>
+    </section> 
+
+
+    
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="algorithm">
+      <div class="w-100">
+        <h2 class="mb-5">Algorithm</h2>
+
+        <h3 class="mb-5">Toy example of the pipeline</h3>
+        <img class="img-fluid lang-en"  style="width:75%" src="img/smdm_fusion.png" alt="" />
+        <figcaption>Figure 1. The 3D reconstruction pipeline from satellite imagery. Left: a set of images is grouped into n-tuples and local reconstruction are carried out;
+          Middle: the reconstructions are transferred to a reference frame of the terrain geometry and fused; Right: A free open-source implementation of the algorithm is available in <a href="https://github.com/micmacIGN/micmac">MicMac</a> </figcaption>
+      
+ 
+
+      </div>
+    </section>
+
+        
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="result">
+      <div class="w-100">
+        <h2 class="mb-5">Results</h2>
+ 
+        <h3 class="mb-5"> Comparison between different reconstructions.  </h3>
+        <img class="img-fluid lang-en" style="width:75%" src="img/smdm-fine-surface.png" alt="" />
+        <figcaption>Figure 2. Pleides video dataset, an extract from the gray-shaded DSM. (1) a single triplet; (2) fusion of three triplets (Ours); (3) fusion of four triplets (Ours); (4) fusion of seven triplets (Ours). </figcaption>
+        
+
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="publications">
+      <div class="w-100">
+        <h2 class="mb-5">Publications</h2>
+
+        <ol id="pub" class="sub">
+        </ol>
+
+      </div>
+    </section>
+
+
+  </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="vendor/jquery.isotope.min.js"></script>
+  <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/resume.js"></script>
+
+</body>
+
+</html>
