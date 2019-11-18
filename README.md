@@ -1,2 +1,2 @@
 # ewelina-rupnik
-LaSTIG homepage of Ewelina Rupnik
+The official LaSTIG homepage of Ewelina Rupnik
