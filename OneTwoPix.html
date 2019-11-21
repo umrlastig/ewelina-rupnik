@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Research on 3D reconstruction from multi-view VHR-satellite - Ewelina Rupnik's webpage</title>
+  <title>Research on fine surface reconstruction - Ewelina Rupnik's webpage</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -78,10 +78,18 @@ t
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
       <div class="w-100">
         <h1 class="mb-0 lang-en">Research on
-          <span class="text-primary lang-en">3D reconstruction</span> from multi-view VHR satellite images
+          <span class="text-primary lang-en">fine</span> surface reconstruction
         </h1> 
 
-      <p class="lead mb-5 lang-en">This work addresses the generation of high quality digital surface models by fusing multiple depths maps calculated with the dense image matching method. The algorithm is adapted to very high resolution multi-view satellite images, and the main contributions of this work are in the multi-view fusion. The algorithm is insensitive to outliers, takes into account the matching quality indicators, handles non-correlated zones (e.g. occlusions), and is solved with a multi-directional dynamic programming approach. No geometric constraints (e.g. surface planarity) or auxiliary data in form of ground control points are required for its operation. Prior to the fusion procedures, the RPC geolocation parameters of all images are improved in a bundle block adjustment routine. The performance of the algorithm is evaluated on two VHR (Very High Resolution)-satellite image datasets (Pléiades, WorldView-3) revealing its good performance in reconstructing non-textured areas, repetitive patterns, and surface discontinuities.</p>
+      <p class="lead mb-5 lang-en">Photogrammetrically derived Digital Surface Models have been widely adopted in geoscientific applications 
+              such as mapping and change detection across volcanic surfaces, glaciers, areas of seismic activity, forests, river landforms etc.  
+              Resolution of the reconstructed surface is crucial as more accurate information enables more profound understanding of the phenomena. 
+              With this objective in mind, the research presented here proposes a new matching cost function that produces 
+              surfaces of enhanced resolution with respect to the gold standard: the window-based semi-global matching technique. 
+              We evaluate the algorithm on different image datasets spanning various acquisition geometries, radiometric qualities 
+                and ground sample distance sizes. In particular, results on Earth satellites (SPOT-7, Pl\'eiades), extraterrestrial 
+                (Chang'E3 moon landing), aerial and terrestrial acquisitions are shown. The implementation of the method is available 
+                in MicMac -- the free open-source software for photogrammetry.</p>
       <p class="lead mb-5 lang-fr">Regardez la version anglaise</p>
 
 
@@ -96,10 +104,29 @@ t
       <div class="w-100">
         <h2 class="mb-5">Algorithm</h2>
 
-        <h3 class="mb-5">Toy example of the pipeline</h3>
-        <img class="img-fluid lang-en"  style="width:75%" src="img/smdm_fusion.png" alt="" />
-        <figcaption>Figure 1. The 3D reconstruction pipeline from satellite imagery. Left: a set of images is grouped into n-tuples and local reconstruction are carried out;
-          Middle: the reconstructions are transferred to a reference frame of the terrain geometry and fused; Right: A free open-source implementation of the algorithm is available in <a href="https://github.com/micmacIGN/micmac">MicMac</a> </figcaption>
+         
+
+        <h4 class="mb-5">In this work we aim to develop enhanced precision depth reconstruction free from   
+            fronto-parallel artefacts and with good performance at surface discontinuities. To realise this goal we:</h4>
+
+            <ol>
+                    <li>formulate a new matching cost defined over a single pixel,</li>
+                    <li>adopt a second pixel to add context and allow for slope testing with minimum information 
+                        (a slope is defined by two points in 3D space and it is tested with exactly two pixels),</li>
+                    <li> embed the image dense matching in a semi-global matching framework which favours 
+                        slope coherence in the neighbourhood of a point and ensures surface continuity in poorly textured areas,</li>
+                    <li>define the matching cost in a multi-view constraint to increase the robustness of the reconstruction.</li>
+
+            </ol>  
+
+        <img class="img-fluid lang-en"  style="width:55%" src="img/OneTwoPix-toy.png" alt="" />
+        <figcaption>Figure 1. A toy example.
+                Top: One-Two-Pixel cost structure corresponding to a stereo pair. 
+                In grey is the surface to be inferred from the matching. 
+                C<sup>I</sup><sub>p,dp</sub> and C<sup>I</sup><sub>q,dq</sub> are the costs of taking disparity dp at p and dq at q, 
+                respectively. C<sup>C</sup><sub>dp,dp</sub> is the cost of assigning a given slope. Bottom: A stereo pair that feeds the cost structure. 
+                The cost structure is illustrated on a stereo pair in epipolar geometry, however, the implemented algorithm 
+                is not constrained by the number of views and, by default, operates in the original image geometry. </figcaption>
       
  
 
@@ -113,12 +140,21 @@ t
       <div class="w-100">
         <h2 class="mb-5">Results</h2>
  
-        <h3 class="mb-5"> Comparison between different reconstructions.  </h3>
-        <img class="img-fluid lang-en" style="width:75%" src="img/smdm-fine-surface.png" alt="" />
-        <figcaption>Figure 2. Pleides video dataset, an extract from the gray-shaded DSM. (1) a single triplet; (2) fusion of three triplets (Ours); (3) fusion of four triplets (Ours); (4) fusion of seven triplets (Ours). </figcaption>
+        <h3 class="mb-5"> Comparison between different reconstruction methods </h3>
+        <img class="img-fluid lang-en" style="width:75%" src="img/One-Two-Pix-matrix-zoom.jpg" alt="" />
+        <figcaption>Figure 2. Close-ups on selected DSM areas. The columns starting from left are: the image, grayshaded DSMs computed with
+                CORR, 1P ix and 12P ix, respectively. The rows correspond to UltraCam, SPOT-7 and Pleiade images.</figcaption>
         
+        <br>
+        <br>
+        <br>
+        <img class="img-fluid lang-en" style="width:75%" src="img/One-Two-Pix-matrix-zoom2.jpg" alt="" />
+        <figcaption>Figure 3. Terrestrial dataset. Close-ups on selected DSM areas. The DSMs were computed with CORR (left column), 1Pix
+                (middle column) and 12Pix (right column) similarity measures. </figcaption>
 
       </div>
+       
+
     </section>
 
     <hr class="m-0">
@@ -126,14 +162,16 @@ t
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="publications">
       <div class="w-100">
         <h2 class="mb-5">Publications</h2>
-
+ 
         <ul class="mt-5 mb-5">
-            <li>Rupnik, E., Pierrot Deseilligny, M., Delorme, A. 3D reconstruction from multi-view VHR-satellite images in MicMac. <em>ISPRS Journal of Photogrammetry and Remote Sensing,</em> 139, pp. 201-211, 2018. 
-                <div class="pubLink">
-                  <a href="https://hal.archives-ouvertes.fr/hal-02369304" class="imgLink"><img src="img/icons/pdf_icon.gif" height="16" alt="PDF" title="PDF"></a>
-                </div>
-            </li> 
-    </ul>
+                <li>Rupnik, E., Pierrot Deseilligny, M., 2019. More surface detail with One-Two-Pixel Matching. hal-02371337.
+                    <div class="pubLink">
+                      <a href="https://hal.archives-ouvertes.fr/hal-02371337" class="imgLink"><img src="img/icons/pdf_icon.gif" height="16" alt="PDF" title="PDF"></a>
+                    </div>
+                </li> 
+        </ul>
+
+        
 
       </div>
     </section>
