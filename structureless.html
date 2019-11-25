@@ -81,19 +81,8 @@ t
           <span class="text-primary lang-en">structureless</span> pose estimation
         </h1> 
 
-      <p class="lead mb-5 lang-en">The global approaches solve SfM problems by independently inferring relative motions, 
-        followed be a sequential
-        estimation of global rotations and translations. It is a fast
-        approach but not optimal because it relies only on pairs
-        and triplets of images and it is not a joint optimisation. In
-        this publication we present a methodology that increases
-        the quality of global solutions without the usual computational 
-        burden tied to the bundle adjustment. We propose
-        an efficient structure approximation approach that relies on
-        relative motions known upfront. Using the approximated
-        structure, we are capable of refining the initial poses at very
-        low computational cost. Compared to different benchmark
-        datasets and solutions, our approach improves the processing times while maintaining good accuracy.</p>
+      <p class="lead mb-5 lang-en">The global approaches solve SfM problems by independently inferring relative motions, followed by a sequential estimation of global rotations and translations. This approach is fast but not optimal because it relies only on pairs and triplets of images and it is not a joint optimisation. In this publication, we present a methodology that increases the quality of global solutions without the usual computational burden tied to the bundle adjustment. We propose an efficient structure approximation approach that relies on relative motions known upfront. Using the approximated structure, we are capable of refining the initial poses at very low computational cost. Compared to different benchmark datasets and solutions, our approach improves the processing times while maintaining good accuracy.
+      </p>
       <p class="lead mb-5 lang-fr">Regardez la version anglaise</p>
 
 
@@ -111,9 +100,8 @@ t
         <h3 class="mb-5">Toy example of the pipeline</h3>
         <img class="img-fluid lang-en"  style="width:55%" src="img/ellipsoid-toy-example_v2.png" alt="" />
         <figcaption>Figure 1. A toy example of structure approximation in 2D and 3D,
-            where (a) shows the initial 2D structure, (b) shows the fitted el-
-            lipse, (c) the fictitious 2D structure, and (d) is the equivalent in
-            3D. </figcaption>
+            where (a) shows the initial 2D structure, (b) shows the fitted ellipse, 
+            (c) the fictitious 2D structure, and (d) is the equivalent in 3D. </figcaption>
       
  
 
@@ -129,7 +117,7 @@ t
  
         <h3 class="mb-5"> Comparison between GT, sequential SfM and and various approximation variants. </h3>
         <img class="img-fluid lang-en" style="width:75%" src="img/vinc_seq_data_v4.png" alt="" />
-        <figcaption>Figure 2. Average position error (err) along the trajectory w.r.t. ground truth for several structure approximation variants </figcaption>
+        <figcaption>Figure 2. Average position error (err) along the trajectory with respect to ground truth for several structure approximation variants </figcaption>
         
         <img class="img-fluid lang-en" style="width:75%" src="img/CAR_v2.jpg" alt="" />
         <figcaption>Figure 3. Left: excerpt from the dataset. Right: solutions correponding to (a) the ground truth, (b) continuous red line, (c) blue dotted line, (d) magenta dot-dashed line in Figure 2. </figcaption>
