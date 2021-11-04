@@ -1,0 +1,140 @@
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-113230407-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-113230407-1');
+    </script>
+
+    <title>Feature matching for multi-epoch historical aerial images, ISPRSJ, 2021</title>
+    <meta name="description" content="Feature matching for multi-epoch historical aerial images">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">-->
+    <!--<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">-->
+
+	<!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
+
+  <!-- Custom styles for this template -->
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="css/resume.css" rel="stylesheet">
+
+	<!-- scripts on load -->
+  <script src="vendor/d3/d3.min.js"></script>
+  <script src="js/reviewing.js" charset="utf-8"></script>
+    <script src="js/hal.js" charset="utf-8"></script>
+
+	<style>
+	.aligncenter {
+    	text-align: center;
+		}
+	</style>
+
+
+  </head>
+  <body>
+
+    <div class="container-fluid banner-background">
+      <div class="banner pt-5 pb-4">
+			  <h2><span class="avoidwrap"><p class="aligncenter">Feature matching for multi-epoch historical aerial images</p></span></h2>
+			  <h3 class="pt-2"><font color="red"><p class="aligncenter">ISPRS Journal, 2021</p></font></h3>
+
+        <div class="row author-list pt-3">
+            <div class="col author"><a target="_blank" href="https://www.umr-lastig.fr/Lulin-Zhang/">Lulin Zhang</a><sup>1</sup>&#42;</div>
+            <div class="col author"><a target="_blank" href="https://www.umr-lastig.fr/ewelina-rupnik/">Ewelina Rupnik</a><sup>1</sup></div>
+            <div class="col author"><a target="_blank" href="https://micmac.ensg.eu/index.php/Marc_Pierrot-Deseilligny">Marc Pierrot-Deseilligny</a><sup>1</sup></div>
+        </div>
+        <div class="row author-list pt-3">
+				<div class="col affiliation"><p class="aligncenter"><sup>1</sup>LaSTIG, UGE-IGN-ENSG </p></div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid container-center container-main">
+
+      <div class="row links-list justify-content-center">
+        <div class="col-auto research-link">
+          <a target="_blank" href="https://www.sciencedirect.com/science/article/pii/S0924271621002707">
+            <img class="link-icon mx-3" alt="Paper Icon" src="img/paper_thumb.jpg" style="border:0.1px solid gray">
+            <p class="aligncenter">PAPER</p>
+          </a>
+        </div>
+
+        <div class="col-auto research-link">
+          <a target="_blank" href="https://github.com/micmacIGN/micmac/tree/master/src/uti_phgrm/TiePHistorical">
+            <img class="link-icon" alt="Code Icon" src="img/GitHub-Mark-120px-plus.png">
+            <p class="aligncenter">CODE</p>
+          </a>
+        </div>
+
+        <div class="col-auto research-link">
+          <a href="https://www.youtube.com/watch?v=YnF-F0UJaSM" target="_blank">
+            <div class="link-icon" style="padding-top:5px;padding-bottom:5px">
+              <img alt="Video Icon" src="img/video_thumb.jpg" style="height:100px;border:0.5px solid gray">
+            </div>
+            <p class="aligncenter">VIDEO</p>
+          </a>
+        </div>
+
+        <div class="col-auto research-link align-items-center">
+          <a href="assets/" target="_blank">
+            <div class="link-icon" style="padding-top:5px;padding-bottom:5px">
+              <img alt="Slides Icon" src="img/slides_thumbnail.jpg" style="height:75px;border:0.5px solid gray">
+            </div>
+            <p class="aligncenter">SLIDES</p>
+          </a>
+        </div>
+
+      </div>
+
+      <p class="tldr">TLDR: This paper introduces a pipeline that improves the accuracy of pose estimation of multi-epoch historical images by finding reliable and precise feature matches invariant to time. To do that we exploit RGB images and coarse 3D geometry, as well as the modern deep learning feauture matching algorithms.</p>
+
+      <div class="figure1 pb-3">
+		<p class="aligncenter">
+		<img alt="teaser" style="width:55%" src="img/teaser.jpg">
+		</p>
+      </div>
+
+      <hr>
+
+      <h3>Abstract</h3>
+	  <p class="pb-2 abstract">Historical imagery is characterized by high spatial resolution and stereoscopic acquisitions, providing a valuable resource for recovering 3D land-cover information. Accurate geo-referencing of diachronic historical images by means of self-calibration remains a bottleneck because of the difficulty to find sufficient amount of feature correspondences under evolving landscapes. <span style="font-weight:600"> In this research, we present a fully automatic approach to detecting feature correspondences between historical images taken at different times </span>: (i.e., inter-epoch), without auxiliary data required. Based on relative orientations computed within the same epoch (i.e., intra-epoch), we obtain DSMs (Digital Surface Model) and incorporate them in a rough-to-precise matching. The method consists of: (1) an inter-epoch DSMs matching to roughly co-register the orientations and DSMs (i.e, the 3D Helmert transformation), followed by (2) a precise inter-epoch feature matching using the original RGB images. The innate ambiguity of the latter is largely alleviated by narrowing down the search space using the co-registered data. With the inter-epoch feature correspondences, we refine the image orientations and quantitatively evaluate the results (1) with DoD (Difference of DSMs), (2) with ground check points, and (3) by quantifying ground displacement due to an earthquake. We demonstrate that our method: (1) can automatically georeference diachronic historical images; (2) can effectively mitigate systematic errors induced by poorly estimated camera parameters; (3) is robust to drastic scene changes. Compared to the state-of-the-art, our method improves the image georeferencing accuracy by a factor of 2. The proposed methods are implemented in MicMac, a free, open-source photogrammetric software.</p>
+      <div class="figure2">
+		<p class="aligncenter">
+        <img alt="pipeline" style="width:65%" src="img/flowchart.png" >
+</p>
+      </div>
+
+      <h3>BibTeX Citation</h3>
+      <pre>@article{zhang2021histopipeline,
+				author = {Lulin Zhang and 
+					Ewelina Rupnik and 
+					Marc Pierrot-Deseilligny},
+				title = {Feature matching for multi-epoch historical aerial images},
+				journal = {ISPRS Journal of Photogrammetry and Remote Sensing},
+				volume = {182},
+				pages = {176-189},
+				year = {2021},
+}
+	  </pre>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
